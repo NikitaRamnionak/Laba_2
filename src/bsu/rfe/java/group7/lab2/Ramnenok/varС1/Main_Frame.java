@@ -93,5 +93,43 @@ public class Main_Frame extends JFrame {
         radioButtons.setSelected(radioButtons.getElements().nextElement().getModel(), true);
         formula_type.add(Box.createHorizontalGlue());
         formula_type.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+
+        Box data=Box.createHorizontalBox();                 // область с полями ввода значений
+        x_field = new JTextField("0",10);
+        x_field.setMaximumSize(x_field.getPreferredSize());
+        y_field = new JTextField("0",10);
+        y_field.setMaximumSize(x_field.getPreferredSize());
+        z_field = new JTextField("0",10);
+        z_field.setMaximumSize(x_field.getPreferredSize());
+        JLabel x_label = new JLabel("X:", JLabel.LEFT);
+        JLabel y_label = new JLabel("Y:", JLabel.CENTER);
+        JLabel z_label = new JLabel("Z:", JLabel.RIGHT);
+        //data.add(Box.createHorizontalGlue());
+        data.add(x_label);
+        data.add(Box.createHorizontalStrut(10));
+        data.add(x_field);
+        data.add(Box.createHorizontalGlue());
+        data.add(Box.createHorizontalStrut(100));
+        data.add(y_label);
+        data.add(Box.createHorizontalStrut(10));
+        data.add(y_field);
+        data.add(Box.createHorizontalGlue());
+        data.add(Box.createHorizontalStrut(100));
+        data.add(z_label);
+        data.add(Box.createHorizontalStrut(10));
+        data.add(z_field);
+        //data.add(Box.createHorizontalGlue());
+        data.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+
+        Box result_area = Box.createHorizontalBox();          // область для результата
+        result_area.add(Box.createHorizontalGlue());
+        JLabel resultlabel=new JLabel("Результат:");
+        result_field = new JTextField("0",15);
+        result_field.setMaximumSize(result_field.getPreferredSize());
+        result_area.add(resultlabel);
+        result_area.add(Box.createHorizontalStrut(10));
+        result_area.add(result_field);
+        result_area.add(Box.createHorizontalGlue());
+        result_area.setBorder(BorderFactory.createLineBorder(Color.PINK));
     }
 }
