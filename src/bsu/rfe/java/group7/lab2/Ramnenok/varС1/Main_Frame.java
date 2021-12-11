@@ -29,4 +29,15 @@ public class Main_Frame extends JFrame {
     private Double mem1 = 0.0;
     private Double mem2 = 0.0;
     private Double mem3 = 0.0;
+
+
+    public Double formula1(Double x, Double y, Double z) {
+
+        return Math.sin(Math.log(y) + Math.sin(Math.PI * Math.pow(y, 2))) * Math.pow(Math.pow(x, 2) + Math.sin(z) + Math.exp(Math.cos(z)), 1 / 4);
+    }
+
+    public Double formula2(Double x, Double y, Double z) {
+        return Math.pow(Math.cos(Math.exp(x)) + Math.log(Math.pow(1 + y, 2)) + Math.pow(Math.exp(Math.cos(x)) + Math.pow(Math.sin(Math.PI * z), 2), 1 / 2) + Math.pow(1 / x, 1 / 2) + Math.cos(Math.pow(y, 2)), Math.sin(z));
+    }
+
 }
