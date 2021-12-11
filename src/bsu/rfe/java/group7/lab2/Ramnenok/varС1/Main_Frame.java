@@ -131,5 +131,53 @@ public class Main_Frame extends JFrame {
         result_area.add(result_field);
         result_area.add(Box.createHorizontalGlue());
         result_area.setBorder(BorderFactory.createLineBorder(Color.PINK));
+
+        Box actions=Box.createHorizontalBox();                        // область для действий
+        JButton calc_button=new JButton("Вычислить");
+        calc_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ev) {
+                //Преобразование введенных строк в числа с плавающей точкой может
+                //спровоцировать исключительную ситуацию при неправильном формате чисел,
+                //поэтому необходим блок try-catch
+                try {
+                    //Получить значение X
+                    Double x = Double.parseDouble(x_field.getText());
+                    //Получить значение Y
+                    Double y = Double.parseDouble(y_field.getText());
+                    //Получить значение Z
+                    Double z = Double.parseDouble(z_field.getText());
+                    // Результат
+                    Double result;
+
+                    //Вычислить результат
+                    if (formula_number==1)
+                        result = formula1(x, y, z);
+                    else
+                        result = formula2(x, y, z);
+                    //Установить текст надписи равным результату
+                    result_field.setText(result.toString());
+                } catch (NumberFormatException ex) {
+                    //В случае исключительной ситуации показать сообщение
+                    JOptionPane.showMessageDialog(Main_Frame.this, "Ошибка в" +
+                                    "формате записи числа с плавающей точкой", "Ошибочный формат числа",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+        JButton clean_button=new JButton("Очистить");
+        clean_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ev) {
+                x_field.setText("0");
+                y_field.setText("0");
+                z_field.setText("0");
+                result_field.setText("0");
+            }
+        });
+        actions.add(Box.createHorizontalGlue());
+        actions.add(calc_button);
+        actions.add(Box.createHorizontalStrut(10));
+        actions.add(clean_button);
+        actions.add(Box.createHorizontalGlue());
+
     }
 }
