@@ -71,4 +71,27 @@ public class Main_Frame extends JFrame {
         radioButtons.add(button);
         formula_type.add(button);
     }
+
+    public Main_Frame() {
+        super("Вычисление формулы");
+        setSize(width, height);
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        setLocation((kit.getScreenSize().width - width) / 2,
+                (kit.getScreenSize().height - height) / 2);
+
+        Box picture = Box.createHorizontalBox();                    // область с картинкой
+        picture.add(Box.createVerticalGlue());
+        picture.add(Box.createHorizontalGlue());
+        image = new JLabel(new ImageIcon(Main_Frame.class.getResource("formula_1.jpg")));
+        picture.add(image);
+        picture.add(Box.createHorizontalGlue());
+        picture.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        formula_type.add(Box.createHorizontalGlue());              // область с выбором формул
+        addRadioButton("Формула 1", 1);
+        addRadioButton("Формула 2", 2);
+        radioButtons.setSelected(radioButtons.getElements().nextElement().getModel(), true);
+        formula_type.add(Box.createHorizontalGlue());
+        formula_type.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+    }
 }
