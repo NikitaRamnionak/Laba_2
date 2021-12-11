@@ -40,4 +40,35 @@ public class Main_Frame extends JFrame {
         return Math.pow(Math.cos(Math.exp(x)) + Math.log(Math.pow(1 + y, 2)) + Math.pow(Math.exp(Math.cos(x)) + Math.pow(Math.sin(Math.PI * z), 2), 1 / 2) + Math.pow(1 / x, 1 / 2) + Math.cos(Math.pow(y, 2)), Math.sin(z));
     }
 
+    private void addMemoryRadioButton (String buttonName, final int memoryId)	{         // радиокнопки для памяти
+        JRadioButton button = new JRadioButton(buttonName);
+
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event)	{
+                Main_Frame.this.memoryId = memoryId;
+                if (memoryId == 1)	memoryTextField.setText(mem1.toString());
+                if (memoryId == 2)	memoryTextField.setText(mem2.toString());
+                if (memoryId == 3)	memoryTextField.setText(mem3.toString());
+            }
+        });
+
+        radioMemoryButtons.add(button);
+        hBoxMemoryType.add(button);
+    }
+    private void addRadioButton(String name, final int formula_number)           // радиокнопки для формул
+    {
+        JRadioButton button = new JRadioButton(name);
+        button.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent)
+            {
+                Main_Frame.this.formula_number = formula_number;
+                if (formula_number == 1)	image.setIcon(new ImageIcon(Main_Frame.class.getResource("formula_1.jpg")));
+                if (formula_number == 2)    image.setIcon(new ImageIcon(Main_Frame.class.getResource("formula_2.jpg")));
+            }
+        });
+        radioButtons.add(button);
+        formula_type.add(button);
+    }
 }
