@@ -233,5 +233,23 @@ public class Main_Frame extends JFrame {
         memory_result.add(M_plus);
         memory_result.add(Box.createHorizontalGlue());
 
+        Box contentBox = Box.createVerticalBox();
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(picture);
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(formula_type);
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(data);
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(result_area);
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(actions);
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(hBoxMemoryType);
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(memory_result);
+
+
+        getContentPane().add(contentBox, BorderLayout.CENTER);
     }
 }
